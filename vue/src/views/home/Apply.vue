@@ -41,7 +41,7 @@
                 v-model="estimate.product_name"
                 @change="checkLogin()"
             ></v-textarea>
-            <!-- <v-text-field
+            <v-text-field
                 dense
                 class="rounded-lg mb-4"
                 outlined
@@ -51,7 +51,7 @@
                 placeholder="자유롭게 기술하세요"
                 v-model="estimate.amount"
                 @change="checkLogin()"
-            ></v-text-field> -->
+            ></v-text-field>
             <v-text-field
                 dense
                 class="rounded-lg mb-4"
@@ -110,32 +110,7 @@
                     <v-icon class="mr-1" color="blue">mdi-file-chart-outline</v-icon>
                 </template>
             </v-file-input>
-
-            <v-sheet class="d-flex pt-3">
-                <v-checkbox
-                    class="mb-0 mt-3px ml-6px pa-0"
-                    color="primary"
-                    v-model="privacy"
-                    :error-messages="privacy_Errors"
-                    required
-                    @change="$v.privacy.$touch()"
-                    @blur="$v.privacy.$touch()"
-                >
-                    <template v-slot:label>
-                        <p class="mb-0 pb-2px text-body-2 font-weight-medium">개인정보 수집ㆍ이용 동의</p>
-                    </template>
-                </v-checkbox>
-                <v-spacer></v-spacer>
-                <router-link to="/policy/privacy?type=read" style="cursor:pointer; text-decoration:none !important;">
-                    <p class="text-subtitle-2 font-weight-bold mt-3px mr-3 primary--text">
-                        약관보기
-                        <v-icon size="20" class="ml-6px mb-2px" color="primary">
-                            mdi-open-in-new
-                        </v-icon>
-                    </p>
-                </router-link>
-            </v-sheet>
-
+            
             <!-- 버튼 -->
             <div class="mt-6 d-flex justify-center">
                 <!-- 제출 -->
