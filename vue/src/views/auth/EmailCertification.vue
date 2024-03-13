@@ -80,7 +80,7 @@
 <script>
 export default {
     data: () => ({
-        cert: false
+        cert: true
     }),
 
     mounted(){
