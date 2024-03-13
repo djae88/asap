@@ -203,7 +203,7 @@
             class="rounded-10"
             style="overflow:scroll"
         >
-            <editor-content :editor="editor" class="px-4 py-8" style="min-height:300px; max-height:720px; overflow:scroll font-size:11pt;" />
+            <editor-content :editor="editor" class="px-4 py-8" style="min-height:300px; max-height:720px; overflow:scroll; font-size:11pt;" />
         </v-sheet>
 
         <!-- Dialog (이미지) -->
