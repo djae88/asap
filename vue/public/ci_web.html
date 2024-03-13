@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>팝업 차단을 해제해야합니다</title>
+
+    <script src="https://auth.mobilians.co.kr/js/ext/ext_inc_comm.js"></script>
+    <script language="javascript">
+
+        function payRequest() {
+            //아래와 같이 ext_inc_comm.js에 선언되어 있는 함수를 호출
+            MCASH_PAYMENT(document.payForm);
+        }
+    </script>
+</head>
+
+<body onload="payRequest(); window.close();">
+    <form style="visibility:hidden" name="payForm" accept-charset='utf-8'>
+
+        <table border="1" width="100%">
+            <tr>
+                <td align="center" colspan="6">
+                    <font size="15pt"><b>휴대폰본인확인 SAMPLE PAGE</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">대표결제수단</font>
+                </td>
+                <td align="center">
+                    <font color="red">CASH_GB</font>
+                </td>
+                <td><input type="text" name="CASH_GB" id="CASH_GB" size="50" value="CI"></td>
+                <td align="center">
+                    <font color="red">서비스아이디</font>
+                </td>
+                <td align="center">
+                    <font color="red">CI_SVCID</font>
+                </td>
+                <td><input type="text" name="CI_SVCID" id="CI_SVCID" size="50" value="210618102102"></td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">가맹점거래번호</font>
+                </td>
+                <td align="center">
+                    <font color="red">Tradeid</font>
+                </td>
+                <td><input type="text" name="Tradeid" id="Tradeid" size="50" value="test"></td>
+                <td align="center">
+                    <font color="red">거래종류</font>
+                </td>
+                <td align="center">
+                    <font color="red">PAY_MODE</font>
+                </td>
+                <td>
+                    <select name="PAY_MODE">
+                        <option value="10">실서버(10)</option>
+                        <option value="00">테스트(00)</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">가맹점도메인</font>
+                </td>
+                <td align="center">
+                    <font color="red">Siteurl</font>
+                </td>
+                <td><input type="text" name="Siteurl" id="Siteurl" size="50" value="www.urbangx.com"></td>
+                <td align="center">
+                    <font color="red">DI웹사이트코드</font>
+                </td>
+                <td align="center">
+                    <font color="red">DI_CODE</font>
+                </td>
+                <td><input type="text" name="DI_CODE" id="DI_CODE" size="50" value="" maxlength="12"></td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">암호화</font>
+                </td>
+                <td align="center">
+                    <font color="red">Cryptyn</font>
+                </td>
+                <td><input type="text" name="Cryptyn" id="Cryptyn" size="1" value="Y"></td>
+                <td align="center">
+                    <font color="red">Keygb</font>
+                </td>
+                <td align="center">
+                    <font color="red">Keygb</font>
+                </td>
+                <td>
+                    <select name="Keygb" id="Keygb">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">성공URL</font>
+                </td>
+                <td align="center">
+                    <font color="red">Okurl</font>
+                </td>
+                <td><input type="text" name="Okurl" id="Okurl" size="50" value="https://www.urbangx.com/api/okurl"></td>
+                <td align="center">Closeurl</td>
+                <td align="center">Closeurl</td>
+                <td><input type="text" name="Closeurl" id="Closeurl" size="50" value=""></td>
+            </tr>
+
+            <tr>
+                <td align="center" bgcolor="C8FFFF">결제창 호출방식</td>
+                <td align="center" bgcolor="C8FFFF">CALL_TYPE</td>
+                <td>
+                    <select name="CALL_TYPE" id="CALL_TYPE">
+                        <option value="P">P</option>
+                        <option value="SELF">SELF</option>
+                        <option value="I">I</option>
+                    </select>
+                </td>
+                <td align="center" bgcolor="C8FFFF">IFRAME_NAME</td>
+                <td bgcolor="C8FFFF">IFRAME_NAME</td>
+                <td><input type="text" name="IFRAME_NAME" id="IFRAME_NAME" size="30" value=""></td>
+            </tr>
+
+            <tr>
+                <td align="center">가맹점 콜백 변수</td>
+                <td align="center">MSTR</td>
+                <td><input type="text" name="MSTR" id="MSTR" size="50" value=""></td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <font color="red">결제단계구분</font>
+                </td>
+                <td align="center">
+                    <font color="red">CI_Mode</font>
+                </td>
+                <td>
+                    <select name="CI_Mode" id="CI_Mode">
+                        <option value="61">순수본인인증(61:점유)</option>
+                        <option value="51">발신번호,SMS문구설정(51:SMS발송)</option>
+                        <option value="41">발신번호,LMS문구설정(41:LMS발송)LMS용서비스ID필요</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">발신번호</td>
+                <td align="center">Callback</td>
+                <td><input type="text" name="Callback" id="Callback" size="50" value=""></td>
+                <td align="center">SMS문구</td>
+                <td align="center">Smstext</td>
+                <td><input type="text" name="Smstext" id="Smstext" size="50" value="SMS문구입니다. 000000 입력하세요"></td>
+            </tr>
+
+            <tr>
+                <td align="center">LMS제목</td>
+                <td align="center">Lmstitle</td>
+                <td><input type="text" name="Lmstitle" id="Lmstitle" size="50" value=""></td>
+                <td align="center">LMS본문</td>
+                <td align="center">Lmstext</td>
+                <td><input type="text" name="Lmstext" id="Lmstext" size="50" value="LMS문구입니다. 000000 입력하세요."></td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="6"> </td>
+            </tr>
+
+
+            <tr>
+                <td align="center" colspan="6"><input type="button" value="                    인증하기                    "
+                        onclick="payRequest()"></td>
+            </tr>
+        </table>
+
+    </form>
+    <script>
+        var Tradeid = "210618102102" + Math.floor(Math.random() * 1000000000);
+        console.log(document.getElementById('Tradeid').value);
+        document.getElementById('Tradeid').value=Tradeid;
+        console.log(document.getElementById('Tradeid').value);
+    </script>
+</body>
+
+</html>

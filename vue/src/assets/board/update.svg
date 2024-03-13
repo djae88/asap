@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.194" height="18.194" viewBox="0 0 18.194 18.194">
+  <g id="그룹_358" data-name="그룹 358" transform="translate(-885.491 -602)">
+    <ellipse id="타원_36" data-name="타원 36" cx="9.097" cy="9.097" rx="9.097" ry="9.097" transform="translate(885.491 602)" fill="#ff7a51"/>
+    <g id="Icon_feather-edit" data-name="Icon feather-edit" transform="translate(890.631 606.69)">
+      <path id="패스_19" data-name="패스 19" d="M6.965,6H3.881A.881.881,0,0,0,3,6.881v6.168a.881.881,0,0,0,.881.881h6.168a.881.881,0,0,0,.881-.881V9.965" transform="translate(-3 -5.066)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="패스_20" data-name="패스 20" d="M16.626,3.092a.935.935,0,0,1,1.322,1.322L13.762,8.6,12,9.039l.441-1.762Z" transform="translate(-9.357 -2.818)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

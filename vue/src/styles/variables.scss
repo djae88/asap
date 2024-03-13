@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+$body-font-family : 'Noto Sans KR', sans-serif;
+
+$rating-padding: 0.1rem;
+$list-dense-min-height: 34px;
+
+@import "padding.scss";
+@import "margin.scss";
+
+// 라운드
+$border-radius-root: 0.25rem; // 4px
+$rounded: (
+  'sm': $border-radius-root / 2,
+  'lg': $border-radius-root * 2,
+  'xl': $border-radius-root * 6,
+
+  '5': $border-radius-root * 1.25,
+  '10': $border-radius-root * 2.5,
+  '15': $border-radius-root * 3.75,
+  '20': $border-radius-root * 5,
+  '25': $border-radius-root * 6.25,
+  '30': $border-radius-root * 7.5,
+  '35': $border-radius-root * 8.75,
+  '40': $border-radius-root * 10,
+  '45': $border-radius-root * 11.25,
+  '50': $border-radius-root * 12.5,
+
+  'pill': 9999px,
+  'circle': 50%
+);

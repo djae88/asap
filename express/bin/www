@@ -1,0 +1,45 @@
+var app = require('../app')
+var http = require('http')
+var https = require('https')
+var fs = require('fs')
+var onError = require('./errorHandler')
+var onListening = require('./listeningHandler')
+
+console.log(process.env.PORT)
+console.log(normalizePort(process.env.PORT))
+
+// API
+if(process.env.PORT == 3000){
+    var port = normalizePort(process.env.PORT)
+    app.set('port', port)
+    var server = http.createServer(app)
+    server.listen(3000)
+    server.on('error', onError.bind(null, 3000))
+    server.on('listening', onListening)
+}
+function normalizePort(val) {
+    var port = parseInt(val, 10)
+    if(isNaN(port)) return val
+    if (port >= 0) return port
+    return false
+}
+
+// HTTP
+var httpServer = http.createServer(app)
+httpServer.listen(80)
+httpServer.on('error', onError.bind(null, 80))
+httpServer.on('listening', onListening)
+
+// HTTPS
+const privateKey = fs.readFileSync('./bin/asapgo.kr/ssl_decrypt.key', 'utf8')
+const certificate = fs.readFileSync('./bin/asapgo.kr/ssl.crt', 'utf8')
+const ca = fs.readFileSync('./bin/asapgo.kr/chain_all_ssl.crt', 'utf8')
+const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+}
+var httpsServer = https.createServer(credentials, app)
+httpsServer.listen(443)
+httpsServer.on('error', onError.bind(null, 443))
+httpsServer.on('listening', onListening) 

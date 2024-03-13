@@ -1,0 +1,30 @@
+# Express
+/express/node_modules
+/express/public
+# /express/public/upload
+
+# Vue
+/vue/node_modules
+/vue/dist
+/vue/public/sitemap.xml
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.DS_Store
+.idea
+# .vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+package-lock.json
