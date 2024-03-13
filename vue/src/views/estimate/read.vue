@@ -197,7 +197,8 @@ export default {
         is_scraped: "",
 
         dialog: {
-            apply: false
+            apply: false,
+            detail: false
         }
     }),
 
