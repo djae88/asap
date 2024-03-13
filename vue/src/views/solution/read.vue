@@ -121,17 +121,20 @@
                 >
                     삭제
                 </v-btn>
+                
                 <v-spacer></v-spacer>
-                <!-- <v-btn
+                <v-btn
+                    v-if="$store.state.asap_user.is_logined && $store.state.asap_user.user_id != writer"
                     height="40"
                     dark
                     depressed
-                    class="px-6"
+                    class="ml-3 px-6"
                     color="primary"
+                    @click="dialog.apply = true"
+                    :to="'/message?to='+writer"
                 >
-                    <v-icon size="16" left>mdi-pencil</v-icon>
-                    견적 작성하기
-                </v-btn> -->
+                    채팅하기
+                </v-btn>
             </v-sheet>
         </v-sheet>
     </v-sheet>
