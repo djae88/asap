@@ -526,6 +526,29 @@ export default {
             this.url = URL.createObjectURL(this.selectedFile)
         },
 
+        // 이미지 입력 > 업로드 (복사붙여넣기)
+        uploadFile(file) {
+            console.log(file)
+            let formData = new FormData()
+            formData.append('image', file)
+
+            // 이미지 업로드
+            this.$http.post('/api/file/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                params: {
+                    type: "board"
+                }
+            }).then((res) => {
+                let url = '/upload/board/'+res.data
+                this.editor.chain().focus().setImage({ src: url }).run()
+                this.imageDialog = false
+            }).catch((err) => {
+                console.log('FAILURE!!'+ err)
+            })
+        },
+
         // 이미지 입력 > 제출
         insertImage: _.debounce(function() {
 

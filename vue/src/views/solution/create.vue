@@ -7,9 +7,6 @@
         <!-- 본문 -->
         <v-sheet
             class="pa-6 rounded-10"
-            @drop.prevent="onDrop" 
-            @dragover="checkDrop($event)" 
-            @paste="checkPaste($event)"
         >
             <p class="text-h6 mb-3">
                 <v-icon color="blue" class="mb-1 mr-1">mdi-layers-edit</v-icon>
@@ -147,22 +144,6 @@ export default {
     }),
 
     methods: {
-        // Copy & Paste (파일 있을시 파일 업로드 Call)
-        checkPaste(e){
-            console.log(e)
-        },
-
-        // Drag & Drop (기본 이벤트 차단)
-        checkDrop(e) {
-            e.preventDefault()
-        },
-
-        // Drag & Drop (파일 업로드 Call)
-        async onDrop(e){
-            let file = e.dataTransfer.files[0]
-            this.uploadFile = file
-        },
-
         close(){
             this.$router.go(-1)
         },
