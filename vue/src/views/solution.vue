@@ -106,6 +106,7 @@
                 <!-- 목록 -->
                 <div v-if="$route.query.type == 'list'">
                     <SolutionList
+                        v-if="loading"
                         :list="list"
                         :key="key"
                     />
@@ -184,7 +185,9 @@ export default {
         pageCount: 0,
         itemsPerPage: 10,
 
-        key: 0
+        key: 0,
+
+        loading: false
     }),
 
     mounted() {
@@ -202,6 +205,8 @@ export default {
     methods: {
         // 첫 목록
         load(){
+            this.loading = false
+
             this.$http.post('/api/solution/select/list', {
                 params: {
                     user_id: this.$store.state.asap_user.user_id
@@ -214,11 +219,15 @@ export default {
                 this.keyword.category = ""
                 this.keyword.title = ""
                 this.keyword.content = ""
+
+                this.loading = true
             })
         },
 
         // 검색
         search(){
+            this.loading = false
+
             this.$http.post('/api/solution/select/search', {
                 params: {
                     user_id: this.$store.state.asap_user.user_id,
@@ -231,6 +240,8 @@ export default {
                 this.list = res.data
                 this.matchThumbnail()
                 this.key++
+
+                this.loading = true
             })
         },
 

@@ -188,6 +188,7 @@
                 <!-- 목록 -->
                 <div v-if="$route.query.type == 'list'">
                     <EstimateList
+                        v-if="loading"
                         :list="list"
                         :key="key"
                     />
@@ -261,7 +262,9 @@ export default {
         pageCount: 0,
         itemsPerPage: 10,
 
-        key: 0
+        key: 0,
+
+        loading: false
     }),
 
     mounted() {
@@ -279,6 +282,8 @@ export default {
     methods: {
         // 첫 목록
         load(){
+            this.loading = false
+
             this.$http.post('/api/estimate_request/select/list', {
                 params: {
                     user_id: this.$store.state.asap_user.user_id
@@ -292,11 +297,15 @@ export default {
                 this.keyword.amount = ""
                 this.keyword.pay_date = ""
                 this.keyword.deadline = ""
+
+                this.loading = true
             })
         },
 
         // 검색
         search(){
+            this.loading = false
+
             this.$http.post('/api/estimate_request/select/search', {
                 params: {
                     total: this.keyword.total,
@@ -309,6 +318,7 @@ export default {
             }).then((res) => {
                 this.list = res.data
                 this.key++
+                this.loading = true
             })
         },
 
