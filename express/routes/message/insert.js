@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-// 메세지 입력
+// 채팅 입력
 router.post('/', (req, res) => {
     Mysql.query(
         `

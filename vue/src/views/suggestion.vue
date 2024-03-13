@@ -22,7 +22,7 @@
                     class="text-center mb-10 mt-2"
                     style="letter-spacing:2px"
                 >
-                    건의사항
+                    고객센터
                 </h2>
 
                 <v-sheet

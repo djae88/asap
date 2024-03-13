@@ -88,7 +88,7 @@
                             outlined
                             height="480"
                         >
-                            <p>아직 메세지 내역이 없습니다</p>
+                            <p>아직 채팅 내역이 없습니다</p>
                         </v-sheet>
                     </v-sheet>
                 </v-sheet>
@@ -124,7 +124,7 @@
                     >
                         <v-sheet class="mx-2" v-for="(item, index) in message_list" :key="index">
                             <v-sheet class="d-flex align-end mt-4" :class="item.sender==$store.state.asap_user.user_id? 'justify-end':'justify-start'">
-                                <!-- 메세지 시간 -->
+                                <!-- 채팅 시간 -->
                                 <v-sheet v-if="item.sender==$store.state.asap_user.user_id">
                                     <p class="mb-0 mr-2 text-end" style="font-size:9px; color:#B3B3C2;">
                                         {{new Date(item.created).toLocaleDateString()}}
@@ -134,7 +134,7 @@
                                     </p>
                                 </v-sheet>
 
-                                <!-- 일반 메세지 -->
+                                <!-- 일반 채팅 -->
                                 <v-sheet
                                     v-if="item.type=='text'"
                                     class="px-4 py-2 rounded-10"
@@ -144,7 +144,7 @@
                                     {{item.content}}
                                 </v-sheet>
 
-                                <!-- 일반 메세지 -->
+                                <!-- 일반 채팅 -->
                                 <v-sheet
                                     v-if="item.type=='estimate'"
                                     class="px-10 py-4 rounded-10"
@@ -168,7 +168,7 @@
                                     </v-btn>
                                 </v-sheet>
 
-                                <!-- 메세지 시간 -->
+                                <!-- 채팅 시간 -->
                                 <v-sheet v-if="!(item.sender==$store.state.asap_user.user_id)">
                                     <p class="mb-0 ml-2" style="font-size:9px; color:#B3B3C2;">
                                         {{new Date(item.created).toLocaleDateString()}}
@@ -178,7 +178,7 @@
                                         <v-icon
                                             v-if="item.type=='message'"
                                             v-ripple="false"
-                                            title="메세지 신고하기"
+                                            title="채팅 신고하기"
                                             size="12"
                                             class="ml-2px mb-2px"
                                             color="red"
@@ -308,7 +308,7 @@ export default {
             })
         },
 
-        // 메세지 목록 불러오기
+        // 채팅 목록 불러오기
         loadMessage(){
             this.$http.post('/api/message/select/list', {
                 params: {
@@ -320,12 +320,12 @@ export default {
             })
         },
 
-        // 메세지 보내기
+        // 채팅 보내기
         sendMessage(){
             if(!this.message.length){
-                alert("메세지 내용을 입력해주세요")
+                alert("채팅 내용을 입력해주세요")
             }else if(this.message.length > 1000){
-                alert("메세지 내용은 1,000자 이내로 입력해주세요")
+                alert("채팅 내용은 1,000자 이내로 입력해주세요")
             }else{
                 this.$http.post('/api/message/insert', {
                     params: {

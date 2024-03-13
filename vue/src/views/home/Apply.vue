@@ -14,18 +14,15 @@
                     src="@/assets/logo/default.png"
                 ></v-img>
             </div>
-            <p class="text-center text-subtitle-1 font-weight-medium mt-2 mb-0 grey--text text--darken-2">
+            <p class="text-center text-subtitle-1 font-weight-medium mt-2 grey--text text--darken-2">
                 1분만에 익명의 견적 요청하기
-            </p>
-            <p class="text-center text-caption grey--text text--darken-1">
-                견적이 필요한 모든 사람을 위해
             </p>
         </v-sheet>
 
         <!-- 견적 요청 -->
         <v-sheet
             width="600"
-            class="rounded-xl mt-6 pa-10 pb-7 mx-auto"
+            class="rounded-xl mt-8 pa-10 pb-7 mx-auto"
             outlined
             @drop.prevent="onDrop" 
             @dragover="checkDrop($event)" 

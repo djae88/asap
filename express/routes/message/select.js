@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-// 메세지 목록
+// 채팅 목록
 router.post('/list', (req, res) => {
     Mysql.query(
         `

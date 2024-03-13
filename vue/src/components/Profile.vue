@@ -57,12 +57,12 @@
                     <v-list-item-title class="px-0">{{user_profile.user_id}}</v-list-item-title>
                 </v-list-item>
 
-                <!-- 메세지 -->
+                <!-- 채팅 -->
                 <v-list-item
                     @click="sendMessage()"
                 >
                     <v-list-item-title class="px-0">
-                        <v-icon color="primary" small class="mb-2px mr-1">mdi-email</v-icon>메세지
+                        <v-icon color="primary" small class="mb-2px mr-1">mdi-email</v-icon>채팅
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
@@ -112,7 +112,7 @@ export default {
             })
         },
 
-        // 메세지
+        // 채팅
         sendMessage(){
             if(this.$store.state.asap_user.user_id == this.user){
                 alert("자신에게는 쪽지를 보낼 수 없습니다.")

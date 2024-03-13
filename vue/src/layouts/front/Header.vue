@@ -74,7 +74,7 @@
                     exact
                     to="/suggestion"
                 >
-                    건의사항
+                    고객센터
                 </v-btn>
             </div>
             <v-spacer></v-spacer>
@@ -100,12 +100,12 @@
                 </v-btn>
             </div>
 
-            <!-- 로그인 상태 (메세지) -->
+            <!-- 로그인 상태 (채팅) -->
             <div
                 v-if="$store.state.asap_user.is_logined"
                 class="mr-8"
             >
-                <!-- 메세지 내역이 있을때 -->
+                <!-- 채팅 내역이 있을때 -->
                 <v-badge
                     v-if="message_unwatched!=0"
                     color="error"
@@ -133,7 +133,7 @@
                     </v-btn>
                 </v-badge>
 
-                <!-- 메세지 내역이 없을때 -->
+                <!-- 채팅 내역이 없을때 -->
                 <v-btn
                     v-if="message_unwatched==0"
                     width="24"
