@@ -114,10 +114,15 @@ export default {
 
         // 채팅
         sendMessage(){
-            if(this.$store.state.asap_user.user_id == this.user){
-                alert("자신에게는 쪽지를 보낼 수 없습니다.")
-            }else{
-                this.$router.push('/message?to='+this.user_profile.user_id)
+            if(!this.$store.state.asap_user.is_logined){
+                alert("채팅은 로그인 후 이용 가능합니다.")
+            }
+            else{
+                if(this.$store.state.asap_user.user_id == this.user){
+                    alert("자신에게는 쪽지를 보낼 수 없습니다.")
+                }else{
+                    this.$router.push('/message?to='+this.user_profile.user_id)
+                }
             }
         }
     }
