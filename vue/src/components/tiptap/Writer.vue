@@ -547,10 +547,8 @@ export default {
             }).then((res) => {
                 let url = '/upload/board/'+res.data
                 // this.editor.chain().focus().setImage({ src: url }).run()
-                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage>`)
+                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage><p></p>`)
                 this.editor.commands.focus()
-                this.editor.commands.insertContent(`<br/>`)
-                
                 this.imageDialog = false
             }).catch((err) => {
                 console.log('FAILURE!!'+ err)
@@ -586,13 +584,13 @@ export default {
             }).then((res) => {
                 let url = '/upload/board/'+res.data
                 // this.editor.chain().focus().setImage({ src: url }).run()
-                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage>`)
+                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage><p></p>`)
                 this.editor.commands.focus()
-                this.editor.commands.insertContent(`<br/>`)
+                
                 this.imageDialog = false
             }).catch((err) => {
                 console.log('FAILURE!!'+ err)
-            });
+            })
         }, 10),
 
         // 동영상 입력
@@ -612,8 +610,6 @@ export default {
                 }
 
                 this.editor.chain().focus().setIframe({ src: url, style: style }).run()
-                this.editor.commands.focus()
-                this.editor.commands.insertContent(`<br/>`)
                 this.videoDialog = false
                 this.video_align = ''
             }
