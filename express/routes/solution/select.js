@@ -44,21 +44,15 @@ router.post('/search', (req, res) => {
                 solution_list
             where
                     CONCAT(writer, category, title, content) LIKE ?
-                and
-                    category like ?
-                and
-                    title like ?
-                and
-                    content like ?
             order by
                 created desc
         `,
         [
             req.body.params.user_id,
             "%" + req.body.params.total + "%",
-            "%" + req.body.params.category + "%",
-            "%" + req.body.params.title + "%",
-            "%" + req.body.params.content + "%",
+            // "%" + req.body.params.category + "%",
+            // "%" + req.body.params.title + "%",
+            // "%" + req.body.params.content + "%",
         ],
         (err, rows) => {
             if (err) {

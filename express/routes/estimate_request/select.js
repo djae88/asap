@@ -31,7 +31,7 @@ router.post('/list', (req, res) => {
 
 // 견적요청 검색하기
 router.post('/search', (req, res) => {
-    Mysql.query(
+    let test = Mysql.query(
         `
             select
                 *,
@@ -39,28 +39,18 @@ router.post('/search', (req, res) => {
             from
                 estimate_request_list
             where
-                    CONCAT(product_name, amount, pay_date, deadline, memo) LIKE ?
-                and
-                    category like ?
-                and
-                    product_name like ?
-                and
-                    amount like ?
-                and
-                    pay_date like ?
-                and
-                    deadline like ?
+                CONCAT(product_name, amount, pay_date, deadline, memo) LIKE ?
             order by
                 created desc
         `,
         [
             req.body.params.user_id,
             "%" + req.body.params.total + "%",
-            "%" + req.body.params.category + "%",
-            "%" + req.body.params.product_name + "%",
-            "%" + req.body.params.amount + "%",
-            "%" + req.body.params.pay_date + "%",
-            "%" + req.body.params.deadline + "%",
+            // "%" + req.body.params.category + "%",
+            // "%" + req.body.params.product_name + "%",
+            // "%" + req.body.params.amount + "%",
+            // "%" + req.body.params.pay_date + "%",
+            // "%" + req.body.params.deadline + "%",
         ],
         (err, rows) => {
             if (err) {
@@ -68,6 +58,7 @@ router.post('/search', (req, res) => {
                 console.log("Error : " + req.originalUrl)
                 res.json(err)
             } else {
+                console.log(test.sql)
                 console.log("Work! : " + req.originalUrl)
                 res.json(rows)
             }
