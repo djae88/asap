@@ -63,7 +63,7 @@
             <v-img
                 v-if="thumbnail != 'default.png'"
                 class="mx-2"
-                max-width="480"
+                max-width="360"
                 :src="'/upload/estimate/thumbnail/'+encodeURI(thumbnail)"
             ></v-img>
 

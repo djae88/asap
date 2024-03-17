@@ -360,6 +360,9 @@ import TableHeader from '@tiptap/extension-table-header'
 import CharacterCount from '@tiptap/extension-character-count'
 import Placeholder from '@tiptap/extension-placeholder'
 
+// 리사이즈 이미지
+import CustomImage from './resizable_image.js'
+
 export default {
     components: {
         EditorContent,
@@ -422,6 +425,7 @@ export default {
                 TextAlign.configure({
                     types: ['heading', 'paragraph'],
                 }),
+                CustomImage,
                 TextStyle,
                 Color,
                 FontFamily,
@@ -542,7 +546,11 @@ export default {
                 }
             }).then((res) => {
                 let url = '/upload/board/'+res.data
-                this.editor.chain().focus().setImage({ src: url }).run()
+                // this.editor.chain().focus().setImage({ src: url }).run()
+                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage>`)
+                this.editor.commands.focus()
+                this.editor.commands.insertContent(`<br/>`)
+                
                 this.imageDialog = false
             }).catch((err) => {
                 console.log('FAILURE!!'+ err)
@@ -577,7 +585,8 @@ export default {
                 }
             }).then((res) => {
                 let url = '/upload/board/'+res.data
-                this.editor.chain().focus().setImage({ src: url }).run()
+                // this.editor.chain().focus().setImage({ src: url }).run()
+                this.editor.commands.insertContent(`<CustomImage src='`+url+`' style='`+this.image_align+`'></CustomImage>`)
                 this.editor.commands.focus()
                 this.editor.commands.insertContent(`<br/>`)
                 this.imageDialog = false

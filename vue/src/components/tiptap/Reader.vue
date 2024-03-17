@@ -24,6 +24,9 @@ import TableCell from '@tiptap/extension-table-cell'
 // import TableHeader from '@tiptap/extension-table-header'
 import { CustomTableHeader } from "./CustomTableHeader.js";
 
+// CustomImage를 위해 필요
+import { Node } from '@tiptap/core'
+
 export default {
     components: {
         EditorContent,
@@ -38,6 +41,66 @@ export default {
     }),
 
     mounted() {
+        const CustomImage = Node.create({
+            name: 'customImage',
+            inline: true,
+            group: 'inline',
+            draggable: true,
+
+            addAttributes() {
+                return {
+                    src: {},
+                    width: {
+                        default: null,
+                    },
+                    height: {
+                        default: null,
+                    },
+                    align: {}
+                }
+            },
+
+            parseHTML() {
+                return [
+                    {
+                        tag: 'customimage[src]',
+                        getAttrs: dom => ({
+                            src: dom.getAttribute('src'),
+                            // align 속성도 파싱합니다.
+                            align: dom.style.justifyContent === 'flex-start' ? 'justify-start' :
+                                dom.style.justifyContent === 'center' ? 'justify-center' :
+                                dom.style.justifyContent === 'flex-end' ? 'justify-end' : null
+                        }),
+                    },
+                ]
+            },
+
+            renderHTML({ HTMLAttributes }) {
+                // align 값에 따라 적용할 스타일을 결정합니다.
+                let alignStyle = '';
+                switch (HTMLAttributes.align) {
+                    case 'justify-start':
+                        alignStyle = 'flex-start';
+                        break;
+                    case 'justify-center':
+                        alignStyle = 'center';
+                        break;
+                    case 'justify-end':
+                        alignStyle = 'flex-end';
+                        break;
+                    default:
+                        alignStyle = 'flex-start'; // 기본값을 설정합니다.
+                }
+
+                // 이미지를 감싸는 div에 flex 스타일을 적용합니다.
+                return [
+                    'div', 
+                    { style: `display: flex; justify-content: ${alignStyle};` }, 
+                    ['img', HTMLAttributes]
+                ]
+            }
+        })
+
         this.editor = new Editor({
             extensions: [
                 StarterKit,
@@ -45,6 +108,7 @@ export default {
                 Link,
                 FontFamily,
                 FontSize,
+                CustomImage,
                 Image.configure({
                     inline: true,
                 }),

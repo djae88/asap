@@ -254,9 +254,14 @@ export default {
         matchThumbnail(){
             // 이미지
             const imgReg = /<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i
+            const customImgReg = /<customimage[^>]*src=["']?([^>"']+)["']?[^>]*>/i
 
             this.list.forEach(e => {
-                if(e.content.match(imgReg))
+                if(e.content.match(customImgReg))
+                {
+                    e.image = e.content.match(customImgReg)[0].replace(/.*src="([^"]*)".*/, '$1')
+                }
+                else if(e.content.match(imgReg))
                 {
                     e.image = e.content.match(imgReg)[0].replace(/.*src="([^"]*)".*/, '$1')
                 }
