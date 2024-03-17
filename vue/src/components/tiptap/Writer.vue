@@ -578,6 +578,8 @@ export default {
             }).then((res) => {
                 let url = '/upload/board/'+res.data
                 this.editor.chain().focus().setImage({ src: url }).run()
+                this.editor.commands.focus()
+                this.editor.commands.insertContent(`<br/>`)
                 this.imageDialog = false
             }).catch((err) => {
                 console.log('FAILURE!!'+ err)
