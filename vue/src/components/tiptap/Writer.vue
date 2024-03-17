@@ -604,6 +604,7 @@ export default {
 
                 this.editor.chain().focus().setIframe({ src: url, style: style }).run()
                 this.editor.commands.focus()
+                this.editor.commands.insertContent(`<br/>`)
                 this.videoDialog = false
                 this.video_align = ''
             }
