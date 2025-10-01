@@ -8,6 +8,14 @@ export const routes = [
                 component: () => import(/* webpackChunkName: "Common" */ '@/views/home.vue')
             },
             {
+                path: '/toss',
+                component: () => import(/* webpackChunkName: "Common" */ '@/views/toss.vue')
+            },
+            {
+                path: '/toss-complete',
+                component: () => import(/* webpackChunkName: "Common" */ '@/views/toss-complete.vue')
+            },
+            {
                 path: 'estimate',
                 component: () => import(/* webpackChunkName: "Common" */ '@/views/estimate.vue')
             },
