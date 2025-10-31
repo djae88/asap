@@ -96,8 +96,8 @@
 	// 4. Cashlink 서버로 전환 기록 전송
 	// ============================================
 
-	// 현재 도메인에서 API 호출 (프로덕션에서는 실제 도메인 사용)
-	const API_ENDPOINT = window.location.origin + '/api/conversion/create'
+	// Cashlink API 엔드포인트
+	const API_ENDPOINT = 'https://cashlink.kr/api/conversion/create'
 
 	fetch(API_ENDPOINT, {
 		method: 'POST',
