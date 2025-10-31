@@ -44,7 +44,7 @@
         "moment": "^2.29.3",
         "moment-timezone": "^0.5.34",
         "pokemontcgsdk": "^2.0.0",
-        "rxjs": "^7.8.0",
+        "rxjs": "^6.0.0",
         "tiptap": "^1.32.2",
         "tiptap-extensions": "^1.35.2",
         "vue": "^2.6.11",
