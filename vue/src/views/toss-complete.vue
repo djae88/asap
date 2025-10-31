@@ -130,7 +130,8 @@ export default {
         loadCashlinkTracking() {
             // Cashlink 추적 스크립트 동적 로드
             const script = document.createElement('script')
-            script.src = '/success.js'
+            // script.src = '/success.js'
+            script.src = '/success.js?v=' + Date.now() // 캐시 무효화
             script.async = true
             script.onload = () => {
                 console.log('[Cashlink] Tracking script loaded successfully')
