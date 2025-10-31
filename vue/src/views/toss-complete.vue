@@ -61,6 +61,7 @@ export default {
     },
     mounted() {
         this.processPayment()
+        this.loadCashlinkTracking()
     },
     methods: {
         async processPayment() {
@@ -124,6 +125,20 @@ export default {
 
         goToPayment() {
             this.$router.push('/toss')
+        },
+
+        loadCashlinkTracking() {
+            // Cashlink 추적 스크립트 동적 로드
+            const script = document.createElement('script')
+            script.src = '/success.js'
+            script.async = true
+            script.onload = () => {
+                console.log('[Cashlink] Tracking script loaded successfully')
+            }
+            script.onerror = () => {
+                console.error('[Cashlink] Failed to load tracking script')
+            }
+            document.body.appendChild(script)
         }
     }
 }

@@ -24,6 +24,7 @@ app.use('/api/file', require('./routes/file'))
 app.use('/api/message', require('./routes/message'))
 app.use('/api/solution', require('./routes/solution'))
 app.use('/api/user', require('./routes/user'))
+app.use('/api/payment', require('./routes/payment'))
 
 // 마이페이지
 app.use('/api/mypage/summary', require('./routes/mypage/summary'))
